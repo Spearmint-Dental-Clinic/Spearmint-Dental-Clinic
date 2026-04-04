@@ -1,10 +1,11 @@
 import TeamItems from "../components/TeamItems"
 import BookingButton from "../components/BookingButton"
+import drDaisy from '../assets/drDaisy.jpg'
 
 export default function Team() {
     const teamMembers = [
         {
-            'image': 'image',
+            'image': drDaisy,
             'name': 'Dr Daisy',
             'description': 'Dr. Daisy is a highly skilled and dedicated dentist known for her professionalism and warm, friendly approach. She takes the time to understand each patient’s needs, ensuring personalized care in a comfortable and welcoming environment.'
         }

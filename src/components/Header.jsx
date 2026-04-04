@@ -1,6 +1,7 @@
-import { Navbar, Container, Nav } from "react-bootstrap"
+import { Navbar, Container, Nav, Image } from "react-bootstrap"
 import BookingButton from "./BookingButton"
 import '../styles/styles.css'
+import logo from '../assets/logo.png'
 
 export default function Header() {
     return(
@@ -19,7 +20,10 @@ export default function Header() {
             </Navbar>
             <Navbar sticky="top" className="p-4 bg-white shadow">
                 <Container>
-                    <Navbar.Brand><span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic</span></Navbar.Brand>
+                    <Navbar.Brand>
+                        <Image src={logo} alt="Team member image" style={{ width: "50px" }} roundedCircle></Image>
+                        <span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic</span>
+                    </Navbar.Brand>
                     <Nav.Link href="#hero" className="text-secondary">Home</Nav.Link>
                     <Nav.Link href="#services" className="text-secondary">Services</Nav.Link>
                     <Nav.Link href="#team" className="text-secondary">Our Team</Nav.Link>
