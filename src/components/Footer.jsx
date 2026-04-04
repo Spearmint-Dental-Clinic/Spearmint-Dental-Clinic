@@ -2,7 +2,7 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 
 export default function Footer() {
     return(
-        <Container className="p-3 border-top mt-5">
+        <Container id="footer" className="p-3 border-top mt-5">
             <Row>
                 <Col>
                     <h4 style={{ marginLeft: "130px" }}><span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic</span></h4>

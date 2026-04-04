@@ -10,7 +10,7 @@ export default function Team() {
         }
     ]
     return(
-        <div>
+        <div id="team">
             <h1 className="text-center sectionHeadings mt-4">Our Team</h1>
             {teamMembers.map((teamMember) => {
                 return <TeamItems key={teamMember.name} image={teamMember.image} name={teamMember.name} description={teamMember.description} />

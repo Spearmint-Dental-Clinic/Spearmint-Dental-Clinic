@@ -36,7 +36,7 @@ export default function Services() {
         }
     ]
     return(
-        <div className="pt-4">
+        <div id="services" className="pt-4">
             <h1 className="text-center sectionHeadings">Services</h1>
             <p className="text-center text-secondary" style={{ width: "50%", marginLeft: "25%" }}>We offer a comprehensive range of dental services to meet all your oral health needs</p>
             <div className="p-5 d-flex flex-direction-row flex-wrap justify-content-around">

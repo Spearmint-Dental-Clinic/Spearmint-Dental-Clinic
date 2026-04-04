@@ -20,11 +20,11 @@ export default function Header() {
             <Navbar sticky="top" className="p-4 bg-white shadow">
                 <Container>
                     <Navbar.Brand><span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic</span></Navbar.Brand>
-                    <Nav.Link href="#home" className="text-secondary">Home</Nav.Link>
-                    <Nav.Link href="#home" className="text-secondary">Services</Nav.Link>
-                    <Nav.Link href="#home" className="text-secondary">Our Team</Nav.Link>
-                    <Nav.Link href="#home" className="text-secondary">Location</Nav.Link>
-                    <Nav.Link href="#home" className="text-secondary">Contact</Nav.Link>
+                    <Nav.Link href="#hero" className="text-secondary">Home</Nav.Link>
+                    <Nav.Link href="#services" className="text-secondary">Services</Nav.Link>
+                    <Nav.Link href="#team" className="text-secondary">Our Team</Nav.Link>
+                    <Nav.Link href="#location" className="text-secondary">Location</Nav.Link>
+                    <Nav.Link href="#footer" className="text-secondary">Contact</Nav.Link>
                     <BookingButton></BookingButton>
                 </Container>
             </Navbar>
