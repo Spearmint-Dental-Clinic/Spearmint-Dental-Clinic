@@ -1,0 +1,26 @@
+.headerBrandA {
+    color: #026b56;
+    font-weight: 600;
+    font-size: larger;
+}
+
+.headerBrandB {
+    color: #039678;
+    font-size: larger;
+}
+
+.bookAppointmentButton {
+    background-color: #039678;
+    border: none;
+}
+
+.bookAppointmentButton:hover {
+    border: 1px solid black;
+    background-color: #039678;
+}
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.6)), url("../assets/hero.png");
+    background-size: cover;
+    background-color: #cccc;
+}
