@@ -1,0 +1,17 @@
+import { Image, Container, Row, Col } from "react-bootstrap"
+
+export default function TeamItems({ image, name, description }) {
+    return(
+        <Container className="teamItem rounded p-3 mt-5 shadow-lg">
+            <Row>
+                <Col xs={2}>
+                    <Image src={image} alt="Team member image" roundedCircle></Image>
+                </Col>
+                <Col>  
+                    <h4>{name}</h4>
+                    <p className="text-secondary">{description}</p>
+                </Col>
+            </Row>
+        </Container>
+    )
+}

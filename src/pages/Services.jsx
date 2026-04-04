@@ -36,7 +36,7 @@ export default function Services() {
         }
     ]
     return(
-        <div className="p-4">
+        <div className="pt-4">
             <h1 className="text-center sectionHeadings">Services</h1>
             <p className="text-center text-secondary" style={{ width: "50%", marginLeft: "25%" }}>We offer a comprehensive range of dental services to meet all your oral health needs</p>
             <div className="p-5 d-flex flex-direction-row flex-wrap justify-content-around">
@@ -44,7 +44,7 @@ export default function Services() {
                     return <ServiceBox icon={service.icon} title={service.title} text={service.text} />
                 })}
             </div>
-            <div style={{ marginLeft: "400px" }}>
+            <div style={{ marginLeft: "430px", marginBottom: "50px" }}>
                 <BookingButton></BookingButton>
             </div>
         </div>

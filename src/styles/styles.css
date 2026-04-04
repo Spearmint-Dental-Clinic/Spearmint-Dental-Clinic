@@ -36,3 +36,9 @@
     border: 1px solid #03967979;
     width: 30%;
 }
+
+.teamItem {
+    border: 1px solid #03967979;
+    width: 70%;
+    margin-left: 15%;
+}
