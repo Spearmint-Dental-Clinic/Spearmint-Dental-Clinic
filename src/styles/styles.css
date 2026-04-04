@@ -24,3 +24,15 @@
     background-size: cover;
     background-color: #cccc;
 }
+
+.sectionHeadings {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.serviceItem {
+    border: 1px solid #03967979;
+    width: 30%;
+}
