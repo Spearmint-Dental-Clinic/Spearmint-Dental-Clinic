@@ -5,7 +5,7 @@ export default function BookAppointment() {
     const [isSending, setIsSending] = useState();
 
     return(
-        <Form className="p-4 rounded bookingForm mt-5 shadow-lg">
+        <Form className="p-4 rounded bookingForm mt-5">
             <h3 className="sectionHeadings mt-4 mb-3">Book an appointment</h3>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Full Name</Form.Label>

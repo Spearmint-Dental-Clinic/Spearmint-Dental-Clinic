@@ -6,6 +6,7 @@ import Hero from './pages/Hero';
 import Services from './pages/Services';
 import Team from './pages/Team';
 import BookAppointment from './pages/BookAppointment';
+import Footer from './components/Footer';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,5 +15,6 @@ createRoot(document.getElementById('root')).render(
     <Services></Services>
     <Team></Team>
     <BookAppointment></BookAppointment>
+    <Footer></Footer>
   </StrictMode>,
 )

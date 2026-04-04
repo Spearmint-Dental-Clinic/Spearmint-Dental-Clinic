@@ -13,7 +13,7 @@ export default function Team() {
         <div>
             <h1 className="text-center sectionHeadings mt-4">Our Team</h1>
             {teamMembers.map((teamMember) => {
-                return <TeamItems image={teamMember.image} name={teamMember.name} description={teamMember.description} />
+                return <TeamItems key={teamMember.name} image={teamMember.image} name={teamMember.name} description={teamMember.description} />
             })}
             <div style={{ marginLeft: "400px", marginTop: "30px" }}>
                 <BookingButton></BookingButton>
