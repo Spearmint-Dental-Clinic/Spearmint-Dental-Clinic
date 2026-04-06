@@ -48,3 +48,29 @@
     width: 80%;
     margin-left: 10%;
 }
+
+#chatbotIcon {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    background-color: rgb(199, 169, 0);
+    background: radial-gradient(rgb(219, 187, 4), rgb(90, 77, 0));
+    border-color: rgb(199, 169, 0);
+}
+
+#modal {
+    position: fixed;
+    bottom: 50px;
+    right: 5px;
+}
+
+#modalBody {
+    height: 320px;
+    width: 280px;
+    text-align: center;
+    padding-top: 40%;
+    color: #1b1b1ba8;
+}
