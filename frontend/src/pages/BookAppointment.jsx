@@ -2,7 +2,8 @@ import { Form, Button, Spinner } from "react-bootstrap";
 import { useState } from "react";
 
 export default function BookAppointment() {
-    const [isSending, setIsSending] = useState();
+    const [isSending, setIsSending] = useState(false);
+
 
     return(
         <Form className="p-4 rounded bookingForm mt-5" id="booking">
