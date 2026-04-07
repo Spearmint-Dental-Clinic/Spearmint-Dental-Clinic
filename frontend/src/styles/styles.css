@@ -69,8 +69,17 @@
 
 #modalBody {
     height: 320px;
-    width: 280px;
+    width: 260px;
     text-align: center;
-    padding-top: 40%;
     color: #1b1b1ba8;
+}
+
+#chatbotSend {
+    background-color: #e9ecef;
+    border: none;
+}
+
+.modalHeader {
+    background-color: #026b56;
+    padding: 10px;
 }
