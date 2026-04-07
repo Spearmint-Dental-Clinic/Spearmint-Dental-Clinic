@@ -26,12 +26,12 @@ export default function Header() {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#hero" className="text-secondary">Home</Nav.Link>
-                            <Nav.Link href="#services" className="text-secondary">Services</Nav.Link>
-                            <Nav.Link href="#team" className="text-secondary">Our Team</Nav.Link>
-                            <Nav.Link href="#location" className="text-secondary">Location</Nav.Link>
-                            <Nav.Link href="#footer" className="text-secondary">Contact</Nav.Link>
+                        <Nav className="me-auto ms-5">
+                            <Nav.Link href="#hero" className="text-secondary mx-2">Home</Nav.Link>
+                            <Nav.Link href="#services" className="text-secondary mx-2">Services</Nav.Link>
+                            <Nav.Link href="#team" className="text-secondary mx-2">Our Team</Nav.Link>
+                            {/* <Nav.Link href="#location" className="text-secondary">Location</Nav.Link> */}
+                            <Nav.Link href="#footer" className="text-secondary mx-2">Contact</Nav.Link>
                             <BookingButton></BookingButton>
                         </Nav>
                     </Navbar.Collapse>

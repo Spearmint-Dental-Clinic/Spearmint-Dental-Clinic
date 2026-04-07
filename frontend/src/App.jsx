@@ -24,12 +24,12 @@ export default function App() {
                     <br />
                     <a href="https://www.flaticon.com/free-icons/chatbot" title="chatbot icons" style={{ color: "black", fontSize: "9px", margin: "0" }}> Chatbot icons created by Freepik - Flaticon</a>
                 </p> */}
-            <Header></Header>
-            <Hero></Hero>
-            <Services></Services>
-            <Team></Team>
-            <BookAppointment></BookAppointment>
-            <Footer></Footer>
+            <Header />
+            <Hero />
+            <Services />
+            <Team />
+            <BookAppointment />
+            <Footer />
             <Button id="chatbotIcon" onClick={handleShow}>
                 <img src={chatbot} alt="Chatbot icon" style={{ width: '90%' }} />
             </Button>
