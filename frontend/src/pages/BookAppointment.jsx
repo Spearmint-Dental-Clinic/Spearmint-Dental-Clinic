@@ -22,7 +22,7 @@ export default function BookAppointment() {
             const date = e.target.value;
             setFormData({...formData, date: date});
             // Call the endpoint to see what times are available using startDate
-            const response = await fetch('http://localhost:3000/checkAvailability', {
+            const response = await fetch('https://spearmint-dental-clinic.onrender.com/checkAvailability', {
                 method: "POST",
                 headers: {
                     'Content-Type': "application/json",
@@ -48,7 +48,7 @@ export default function BookAppointment() {
         try {
             setIsSending(true);
             setErrors([])
-            const response = await fetch('http://localhost:3000/book', {
+            const response = await fetch('https://spearmint-dental-clinic.onrender.com/book', {
                 method: "POST",
                 headers: {
                     'Content-Type': "application/json",
