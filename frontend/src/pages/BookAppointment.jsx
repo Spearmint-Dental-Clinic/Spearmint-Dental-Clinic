@@ -14,7 +14,7 @@ export default function BookAppointment() {
     const [startDate, setStartDate] = useState('');
     const [availableTimes, setAvailableTimes] = useState([]);
 
-    const [successAlert, setSuccessAlert] = useState('');
+    const [errors, setErrors] = useState([]);
 
     // Obtain the list of available times for the selected date
     const getTimes = async (e) => {
@@ -47,6 +47,7 @@ export default function BookAppointment() {
     const submitForm = async () => {
         try {
             setIsSending(true);
+            setErrors([])
             const response = await fetch('http://localhost:3000/book', {
                 method: "POST",
                 headers: {
@@ -54,46 +55,47 @@ export default function BookAppointment() {
                 },
                 body: JSON.stringify(formData)
             });
+
+            const data = await response.json();
             
             if (!response.ok) {
-                console.log('Server failure encountered!')
-            } else {
-                setSuccessAlert('Your appointment has been booked.')
+                if (data.errors) {
+                    setErrors(data.errors);
+                }
+                return
             }
+            alert('Your appointment has been booked.')
+            window.location.reload();
+
         } catch (err) {
-            console.log('Error')
+            console.log(err);
+            setErrors([{msg: 'Server error encountered'}])
         } finally {
             setIsSending(false);
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                date: '',
-                time: '',
-                service: ''
-            })
-        }        
+        }
     }
 
     return (
         <Form className="p-4 rounded bookingForm mt-5" id="booking">
-            {successAlert !== '' ? <Alert variant='success'>{successAlert}</Alert> : null}
+            {errors.map((error, index) => (
+                <Alert variant='danger' key={index}>{error.msg}</Alert>
+            ))}
             <h3 className="sectionHeadings mt-4 mb-3">Book an appointment</h3>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control type="name" placeholder="John Doe" onChange={(e) => setFormData({...formData, name: e.target.value})} value={formData.name} />
+                <Form.Control type="name" placeholder="John Doe" onChange={(e) => setFormData({...formData, name: e.target.value})} value={formData.name} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control type="email" placeholder="john@example.com" onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email} />
+                <Form.Control type="email" placeholder="john@example.com" onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicNumber">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="number" placeholder="07********" onChange={(e) => setFormData({...formData, phone: e.target.value})} value={formData.phone} />
+                <Form.Control type="number" placeholder="07********" onChange={(e) => setFormData({...formData, phone: e.target.value})} value={formData.phone} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicDate">
                 <Form.Label>Select Appointment Date</Form.Label>
-                <Form.Control type="date" onChange={getTimes} value={formData.date} />
+                <Form.Control type="date" onChange={getTimes} value={formData.date} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicTime">
                 <Form.Label>Select Appointment Time {startDate == '' ? '(You have to select a date first)' : null}</Form.Label>
@@ -110,7 +112,7 @@ export default function BookAppointment() {
                     </div> : null
                 }
                 
-                <Form.Select aria-label="Select a service" disabled={startDate == ''} onChange={(e) => setFormData({...formData, time: e.target.value})} value={formData.time}> {/* Disable time selection if a date is not selected */}
+                <Form.Select aria-label="Select a service" disabled={startDate == ''} onChange={(e) => setFormData({...formData, time: e.target.value})} value={formData.time} required> {/* Disable time selection if a date is not selected */}
                     <option>Select a Time</option>
                     {
                         availableTimes.length > 0 ?

@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { google } = require('googleapis');
+const { check, validationResult } = require('express-validator');
 require('dotenv').config()
 
 const app = express();
@@ -59,8 +60,20 @@ app.post('/checkAvailability', async (req, res) => {
     }
 });
 
-app.post('/book', async (req, res) => {
+app.post('/book', [
+                        check('name').trim().notEmpty().escape().withMessage('Name is required'),
+                        check('email').notEmpty().isEmail().normalizeEmail().withMessage('Please include a valid email'),
+                        check('phone').notEmpty().isMobilePhone('en-KE').withMessage('Please include a valid Kenyan phone number'),
+                        check('date').notEmpty().withMessage('Please select a date'),
+                        check('time').notEmpty().withMessage('Please select a time'),
+                        check('service').notEmpty().withMessage('Please select a service')
+                    ], async (req, res) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
         const { name, email, phone, date, time, service } = req.body;
 
         const startDateTime = new Date(`${date}T${time}`);
@@ -82,7 +95,7 @@ app.post('/book', async (req, res) => {
             resource: event,
         });
 
-        res.json({message: 'Your event was successfully created.'})
+        res.status(200).json({message: 'Your event was successfully created.'})
     } catch (err) {
         console.log(`An error occured: ${err}`);
         res.status(500).json({message: "Error obtaining time slots."});
