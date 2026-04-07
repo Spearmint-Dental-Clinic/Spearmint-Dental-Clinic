@@ -37,7 +37,7 @@
 
 .serviceItem {
     border: 1px solid #03967979;
-    width: 30%;
+    width: 100%;
 }
 
 .teamItem {
@@ -91,5 +91,11 @@
 @media (min-width: 992px) {
     .headerBrandA, .headerBrandB {
         font-size: larger;
+    }
+}
+
+@media (min-width: 500px) {
+    .serviceItem {
+        width: 30%;
     }
 }

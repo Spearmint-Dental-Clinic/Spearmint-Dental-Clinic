@@ -39,13 +39,14 @@ export default function Services() {
         <div id="services" className="pt-4">
             <h1 className="text-center sectionHeadings">Services</h1>
             <p className="text-center text-secondary" style={{ width: "50%", marginLeft: "25%" }}>We offer a comprehensive range of dental services to meet all your oral health needs</p>
-            <div className="p-5 d-flex flex-direction-row flex-wrap justify-content-around">
+
+            <div className="px-5 d-flex flex-direction-row flex-wrap justify-content-around">
                 {services.map((service) => {
                     return <ServiceBox key={service.title} icon={service.icon} title={service.title} text={service.text} />
                 })}
             </div>
-            <div style={{ marginLeft: "430px", marginBottom: "50px" }}>
-                <BookingButton></BookingButton>
+            <div className="text-center pb-4">
+                <BookingButton />
             </div>
         </div>
     )

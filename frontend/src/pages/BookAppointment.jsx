@@ -135,19 +135,21 @@ export default function BookAppointment() {
                     <option value="emergencyCare">Emergency Care</option>
                 </Form.Select>
             </Form.Group>
-            <Button className="bookAppointmentButton" style={{ marginLeft: "350px" }} onClick={submitForm}>
-                {isSending ?
-                    <Spinner
-                        as="span"
-                        animation="grow"
-                        size="sm"
-                        role="status"
-                        aria-hidden="true"
-                    /> :
-                    null
-                }
-                Submit
-            </Button>
+            <div className="text-center pb-4 mt-3">
+                <Button className="bookAppointmentButton" onClick={submitForm}>
+                    {isSending ?
+                        <Spinner
+                            as="span"
+                            animation="grow"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                        /> :
+                        null
+                    }
+                    Submit
+                </Button>
+            </div>
         </Form>
     )
 }

@@ -16,8 +16,8 @@ export default function Team() {
             {teamMembers.map((teamMember) => {
                 return <TeamItems key={teamMember.name} image={teamMember.image} name={teamMember.name} description={teamMember.description} />
             })}
-            <div style={{ marginLeft: "400px", marginTop: "30px" }}>
-                <BookingButton></BookingButton>
+            <div className="text-center pb-4 mt-3">
+                <BookingButton />
             </div>
         </div>
     )
