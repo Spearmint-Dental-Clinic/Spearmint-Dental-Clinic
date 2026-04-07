@@ -8,7 +8,12 @@ require('dotenv').config()
 const app = express();
 const PORT = 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://spearmint-dental-clinic-1.onrender.com',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json())
 
 const email = process.env.USER_EMAIL
