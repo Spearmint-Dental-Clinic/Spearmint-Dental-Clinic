@@ -87,6 +87,11 @@
     padding: 10px;
 }
 
+.footerLinks:hover {
+    text-decoration: underline !important;
+    text-decoration-style: solid;
+}
+
 /* Responsiveness for smaller screens */
 @media (min-width: 992px) {
     .headerBrandA, .headerBrandB {
