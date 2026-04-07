@@ -1,12 +1,12 @@
 .headerBrandA {
     color: #026b56;
     font-weight: 600;
-    font-size: larger;
+    font-size: medium;
 }
 
 .headerBrandB {
     color: #039678;
-    font-size: larger;
+    font-size: medium;
 }
 
 .bookAppointmentButton {
@@ -22,7 +22,10 @@
 .hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.6)), url("../assets/hero.png");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: #cccc;
+    min-height: 50vh;
 }
 
 .sectionHeadings {
@@ -82,4 +85,11 @@
 .modalHeader {
     background-color: #026b56;
     padding: 10px;
+}
+
+/* Responsiveness for smaller screens */
+@media (min-width: 992px) {
+    .headerBrandA, .headerBrandB {
+        font-size: larger;
+    }
 }
