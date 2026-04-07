@@ -5,6 +5,7 @@ import Services from './pages/Services';
 import Team from './pages/Team';
 import BookAppointment from './pages/BookAppointment';
 import Footer from './components/Footer';
+import Location from './pages/Location';
 import { Modal, Button, Form, InputGroup } from 'react-bootstrap';
 import { useState } from 'react';
 import chatbot from './assets/chatbot.png'
