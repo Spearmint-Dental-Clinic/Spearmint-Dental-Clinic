@@ -7,7 +7,7 @@ export default function Team() {
         {
             'image': drDaisy,
             'name': 'Dr. Daisy Masibo Thirikwa',
-            'description': 'Dr. Daisy Masibo- Thirikwa is a highly skilled and dedicated dentist known for her professionalism and warm, friendly approach. She takes the time to understand each patient’s needs, ensuring personalized care in a comfortable and welcoming environment.'
+            'description': 'Dr. Daisy Masibo Thirikwa is a highly skilled and dedicated dentist known for her professionalism and warm, friendly approach. She takes the time to understand each patient’s needs, ensuring personalized care in a comfortable and welcoming environment.'
         }
     ]
     return(
