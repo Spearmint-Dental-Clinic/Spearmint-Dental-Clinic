@@ -39,7 +39,7 @@ export default function App() {
 
         try {
             setTyping(true);
-            const response = "Sorry, your request could not be completed. Please try again later"
+            let response = "Sorry, your request could not be completed. Please try again later"
 
             if (text.toLowerCase().includes('pricing') || text.toLowerCase().includes('cost')) {
                 response = "For pricing information, please call or send a WhatsApp message to (254) 701-561-597 or (254) 745-382-230"
