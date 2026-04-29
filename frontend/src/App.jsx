@@ -39,7 +39,7 @@ export default function App() {
 
         try {
             setTyping(true);
-            let response = "Sorry, your request could not be completed. Please try again later"
+            let response = "Sorry, your request could not be completed. Please try again later or call (254) 701-561-597 or (254) 745-382-230 for emergency inquiries."
 
             if (text.toLowerCase().includes('pricing') || text.toLowerCase().includes('cost')) {
                 response = "For pricing information, please call or send a WhatsApp message to (254) 701-561-597 or (254) 745-382-230"
@@ -47,8 +47,10 @@ export default function App() {
                 response = "You can make a booking between 08:00 A.M to 05:00 P.M on Mondays to Fridays"
             } else if (text.toLowerCase().includes('hello') || text.toLowerCase().includes('hi') || text.toLowerCase().includes('how are you')) {
                 response = "Hello, how can I help you today?"
+            } else if (text.toLowerCase().includes('make a booking')) {
+                response = "You can click the 'Book Appointment' button on this website to make an automatic booking or use (254) 701-561-597 or (254) 745-382-230 to make a call or send a Whatsapp message."
             } else {
-                result = await fetch("https://botsasa-6acp.onrender.com/chatbot", {
+                const result = await fetch("https://botsasa-6acp.onrender.com/chatbot", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
