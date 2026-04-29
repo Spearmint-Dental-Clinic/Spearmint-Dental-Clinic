@@ -39,18 +39,29 @@ export default function App() {
 
         try {
             setTyping(true);
-            const response = await fetch("https://botsasa-6acp.onrender.com/chatbot", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ text: text, apikey: import.meta.env.VITE_CHATBOT_KEY })
-            });
+            const response = "Sorry, your request could not be completed. Please try again later"
 
-            const data = await response.json();
+            if (text.toLowerCase().includes('pricing') || text.toLowerCase().includes('cost')) {
+                response = "For pricing information, please call or send a WhatsApp message to (254) 701-561-597 or (254) 745-382-230"
+            } else if (text.toLowerCase().includes('time') || text.toLowerCase().includes('day') || text.toLowerCase().includes('when can')) {
+                response = "You can make a booking between 08:00 A.M to 05:00 P.M on Mondays to Fridays"
+            } else if (text.toLowerCase().includes('hello') || text.toLowerCase().includes('hi') || text.toLowerCase().includes('how are you')) {
+                response = "Hello, how can I help you today?"
+            } else {
+                result = await fetch("https://botsasa-6acp.onrender.com/chatbot", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ text: text, apikey: import.meta.env.VITE_CHATBOT_KEY })
+                });
+    
+                const data = await result.json();
+                response = data.response.answer
+            }
 
             const botMessage = {
-            message: data.response.answer,
+            message: response,
             sender: "bot"
             };
 
@@ -59,6 +70,12 @@ export default function App() {
             setTyping(false);
         } catch (error) {
             console.error(error);
+            const botMessage = {
+            message: "There was an error processing your message. Try again later",
+            sender: "bot"
+            };
+            setMessages((prev) => [...prev, botMessage]);
+            setTyping(false);
         }
     };
 
