@@ -45,9 +45,11 @@ export default function App() {
                 response = "For pricing information, please call or send a WhatsApp message to (254) 701-561-597 or (254) 745-382-230"
             } else if (text.toLowerCase().includes('time') || text.toLowerCase().includes('day') || text.toLowerCase().includes('when can')) {
                 response = "You can make a booking between 08:00 A.M to 05:00 P.M on Mondays to Fridays"
+            } else if (text.toLowerCase().includes('schedule') || text.toLowerCase().includes('appointment') || text.toLowerCase().includes('booking') || text.toLowerCase().includes('book')) {
+                response = "You can click the 'Book Appointment' button on this website to make an automatic booking or use (254) 701-561-597 or (254) 745-382-230 to make a call or send a Whatsapp message."
             } else if (text.toLowerCase().includes('hello') || text.toLowerCase().includes('hi') || text.toLowerCase().includes('how are you')) {
                 response = "Hello, how can I help you today?"
-            } else if (text.toLowerCase().includes('make a booking')) {
+            } else if (text.toLowerCase().includes('schedule') || text.toLowerCase().includes('appointment') || text.toLowerCase().includes('booking') || text.toLowerCase().includes('book')) {
                 response = "You can click the 'Book Appointment' button on this website to make an automatic booking or use (254) 701-561-597 or (254) 745-382-230 to make a call or send a Whatsapp message."
             } else {
                 const result = await fetch("https://botsasa-6acp.onrender.com/chatbot", {
