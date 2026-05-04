@@ -8,8 +8,8 @@ export default function BookAppointment() {
         email: '',
         phone: '',
         date: '',
-        time: '',
-        service: ''
+        service: '',
+        message: ''
     });
     const [startDate, setStartDate] = useState('');
     const [availableTimes, setAvailableTimes] = useState([]);
@@ -17,38 +17,38 @@ export default function BookAppointment() {
     const [errors, setErrors] = useState([]);
 
     // Obtain the list of available times for the selected date
-    const getTimes = async (e) => {
-        try {
-            const date = e.target.value;
-            setFormData({...formData, date: date});
-            // Call the endpoint to see what times are available using startDate
-            const response = await fetch('https://spearmint-dental-clinic.onrender.com/checkAvailability', {
-                method: "POST",
-                headers: {
-                    'Content-Type': "application/json",
-                },
-                body: JSON.stringify({ date : date })
-            });
+    // const getTimes = async (e) => {
+    //     try {
+    //         const date = e.target.value;
+    //         setFormData({...formData, date: date});
+    //         // Call the endpoint to see what times are available using startDate
+    //         const response = await fetch('https://spearmint-dental-clinic.onrender.com/checkAvailability', {
+    //             method: "POST",
+    //             headers: {
+    //                 'Content-Type': "application/json",
+    //             },
+    //             body: JSON.stringify({ date : date })
+    //         });
 
-            let result = await response.json();
-            console.log(result)
+    //         let result = await response.json();
+    //         console.log(result)
 
-            if (!response.ok) {
-                console.log('Server failure encountered!')
-            }
+    //         if (!response.ok) {
+    //             console.log('Server failure encountered!')
+    //         }
 
-            setAvailableTimes(result.data);
-            setStartDate(date);
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    //         setAvailableTimes(result.data);
+    //         setStartDate(date);
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
     const submitForm = async () => {
         try {
             setIsSending(true);
             setErrors([])
-            const response = await fetch('https://spearmint-dental-clinic.onrender.com/book', {
+            const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
                 method: "POST",
                 headers: {
                     'Content-Type': "application/json",
@@ -95,37 +95,11 @@ export default function BookAppointment() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicDate">
                 <Form.Label>Select Appointment Date</Form.Label>
-                <Form.Control type="date" onChange={getTimes} value={formData.date} required />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicTime">
-                <Form.Label>Select Appointment Time {startDate == '' ? '(You have to select a date first)' : null}</Form.Label>
-                {
-                    startDate == '' && formData.date !== '' ?
-                    <div>
-                        <Spinner
-                            as="span"
-                            animation="border"
-                            size="sm"
-                            role="status"
-                            aria-hidden="true"
-                        />
-                    </div> : null
-                }
-                
-                <Form.Select aria-label="Select a service" disabled={startDate == ''} onChange={(e) => setFormData({...formData, time: e.target.value})} value={formData.time} required> {/* Disable time selection if a date is not selected */}
-                    <option>Select a Time</option>
-                    {
-                        availableTimes.length > 0 ?
-                            availableTimes.map((time) => {
-                                return <option value={time} key={time}>{time}</option>
-                            }) :
-                            <option disabled>There are no available times for the selected date.</option>
-                    }
-                </Form.Select>
+                <Form.Control type="date" value={formData.date} onChange={(e) => setFormData({...formData, date: e.target.value})} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicService">
                 <Form.Label>Select a service</Form.Label>
-                <Form.Select aria-label="Select a service" onChange={(e) => setFormData({...formData, service: e.target.value})} value={formData.service}>
+                <Form.Select aria-label="Select a service" onChange={(e) => setFormData({...formData, service: e.target.value})} value={formData.service} required>
                     <option>Select a service</option>
                     <option value="generalDentistry">General Dentistry</option>
                     <option value="teethWhitening">Teeth Whitening</option>
@@ -135,6 +109,10 @@ export default function BookAppointment() {
                     <option value="emergencyCare">Emergency Care</option>
                 </Form.Select>
             </Form.Group>
+            <Form.Group className="mb-3" controlId="FormControlArea">
+                <Form.Label>Enter a message (optional)</Form.Label>
+                <Form.Control as="textarea" rows={3} onChange={(e) => setFormData({...formData, message: e.target.value})}  value={formData.message} />
+              </Form.Group>
             <div className="text-center pb-4 mt-3">
                 <Button className="bookAppointmentButton" onClick={submitForm}>
                     {isSending ?
