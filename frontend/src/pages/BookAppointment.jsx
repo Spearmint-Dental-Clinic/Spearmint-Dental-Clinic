@@ -1,71 +1,45 @@
 import { Form, Button, Spinner, Alert } from "react-bootstrap";
-import { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function BookAppointment() {
     const [isSending, setIsSending] = useState(false);
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        date: '',
-        service: '',
         message: ''
     });
+    const today = new Date().toISOString().split('T')[0];
     const [startDate, setStartDate] = useState('');
     const [availableTimes, setAvailableTimes] = useState([]);
 
     const [errors, setErrors] = useState([]);
 
-    // Obtain the list of available times for the selected date
-    // const getTimes = async (e) => {
-    //     try {
-    //         const date = e.target.value;
-    //         setFormData({...formData, date: date});
-    //         // Call the endpoint to see what times are available using startDate
-    //         const response = await fetch('https://spearmint-dental-clinic.onrender.com/checkAvailability', {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type': "application/json",
-    //             },
-    //             body: JSON.stringify({ date : date })
-    //         });
-
-    //         let result = await response.json();
-    //         console.log(result)
-
-    //         if (!response.ok) {
-    //             console.log('Server failure encountered!')
-    //         }
-
-    //         setAvailableTimes(result.data);
-    //         setStartDate(date);
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
     const submitForm = async () => {
         try {
             setIsSending(true);
             setErrors([])
-            const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-                method: "POST",
-                headers: {
-                    'Content-Type': "application/json",
+            emailjs
+            .send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, {
+                    name: formData.name,
+                    date: formData.date,
+                    service: formData.service,
+                    phone: formData.phone,
+                    email: formData.email,
+                    message: formData.message,
+                    },{
+                        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+                    }
+                )
+            .then(
+                () => {
+                    alert('Your appointment has been booked.')
+                    window.location.reload();
                 },
-                body: JSON.stringify(formData)
-            });
-
-            const data = await response.json();
-            
-            if (!response.ok) {
-                if (data.errors) {
-                    setErrors(data.errors);
+                (error) => {
+                    console.log(error);
+                    setErrors([{msg: 'Server error encountered. Please try again later'}]);
+                    return
                 }
-                return
-            }
-            alert('Your appointment has been booked.')
-            window.location.reload();
+            )
 
         } catch (err) {
             console.log(err);
@@ -83,30 +57,38 @@ export default function BookAppointment() {
             <h3 className="sectionHeadings mt-4 mb-3">Book an appointment</h3>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control type="name" placeholder="John Doe" onChange={(e) => setFormData({...formData, name: e.target.value})} value={formData.name} required />
+                <Form.Control type="name" placeholder="John Doe" onChange={(e) => setFormData({...formData, name: e.target.value})} value={formData.name ? formData.name : null} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control type="email" placeholder="john@example.com" onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email} required />
+                <Form.Control type="email" placeholder="john@example.com" onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email ? formData.email : null} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicNumber">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="number" placeholder="07********" onChange={(e) => setFormData({...formData, phone: e.target.value})} value={formData.phone} required />
+                <Form.Control type="number" placeholder="07********" onChange={(e) => setFormData({...formData, phone: e.target.value})} value={formData.phone ? formData.phone : null} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicDate">
                 <Form.Label>Select Appointment Date</Form.Label>
-                <Form.Control type="date" value={formData.date} onChange={(e) => setFormData({...formData, date: e.target.value})} required />
+                <Form.Control type="date" min={today} value={formData.date ? formData.date : null} onChange={(e) => setFormData({...formData, date: e.target.value})} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicService">
                 <Form.Label>Select a service</Form.Label>
-                <Form.Select aria-label="Select a service" onChange={(e) => setFormData({...formData, service: e.target.value})} value={formData.service} required>
+                <Form.Select aria-label="Select a service" onChange={(e) => setFormData({...formData, service: e.target.value})} value={formData.service ? formData.service : null} required>
                     <option>Select a service</option>
-                    <option value="generalDentistry">General Dentistry</option>
-                    <option value="teethWhitening">Teeth Whitening</option>
-                    <option value="dentalImplants">Dental Implants</option>
-                    <option value="orthodontics">Orthodontics</option>
-                    <option value="rootCanal">Root Canal</option>
-                    <option value="emergencyCare">Emergency Care</option>
+                    <option value="Consultation">Consultation</option>
+                    <option value="Study Models">Study Models</option>
+                    <option value="Composite Filling">Composite Filling</option>
+                    <option value="GIC Filling">GIC Filling</option>
+                    <option value="Dental Extraction">Dental Extraction</option>
+                    <option value="Children Tooth Extraction">Children Tooth Extraction</option>
+                    <option value="Root Canal">Root Canal</option>
+                    <option value="Open Disimpaction">Open Disimpaction</option>
+                    <option value="Closed Disimpaction">Closed Disimpaction</option>
+                    <option value="Full Mouth Scaling and Polishing">Full Mouth Scaling and Polishing</option>
+                    <option value="Oral Prophylaxis">Oral Prophylaxis</option>
+                    <option value="Bleaching">Bleaching</option>
+                    <option value="Dentures">Dentures</option>
+                    <option value="Other">Other(Please specify in a message below)</option>
                 </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="FormControlArea">
@@ -114,7 +96,7 @@ export default function BookAppointment() {
                 <Form.Control as="textarea" rows={3} onChange={(e) => setFormData({...formData, message: e.target.value})}  value={formData.message} />
               </Form.Group>
             <div className="text-center pb-4 mt-3">
-                <Button className="bookAppointmentButton" onClick={submitForm}>
+                <Button className="bookAppointmentButton" onClick={submitForm} disabled={!formData.name || !formData.email || !formData.phone || !formData.date || !formData.service}>
                     {isSending ?
                         <Spinner
                             as="span"
