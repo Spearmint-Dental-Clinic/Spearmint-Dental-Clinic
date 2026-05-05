@@ -42,7 +42,7 @@ export default function App() {
             let response = "Sorry, your request could not be completed. Please try again later or call (254) 701-561-597 or (254) 745-382-230 for emergency inquiries."
 
             if (text.toLowerCase().includes('price') || text.toLowerCase().includes('pricing') || text.toLowerCase().includes('how much') || text.toLowerCase().includes('cost')) {
-                if (text.toLowerCase().includes('consulation')) {
+                if (text.toLowerCase().includes('consultation')) {
                     response = "The cost is Ksh2,000"
                 } else if (text.toLowerCase().includes('study models')) {
                     response = "The cost is Ksh10,000"
