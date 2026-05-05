@@ -41,8 +41,36 @@ export default function App() {
             setTyping(true);
             let response = "Sorry, your request could not be completed. Please try again later or call (254) 701-561-597 or (254) 745-382-230 for emergency inquiries."
 
-            if (text.toLowerCase().includes('pricing') || text.toLowerCase().includes('cost')) {
-                response = "For pricing information, please call or send a WhatsApp message to (254) 701-561-597 or (254) 745-382-230"
+            if (text.toLowerCase().includes('price') || text.toLowerCase().includes('pricing') || text.toLowerCase().includes('how much') || text.toLowerCase().includes('cost')) {
+                if (text.toLowerCase().includes('consulation')) {
+                    response = "The cost is Ksh2,000"
+                } else if (text.toLowerCase().includes('study models')) {
+                    response = "The cost is Ksh10,000"
+                } else if (text.toLowerCase().includes('composite filling') || text.toLowerCase().includes('composite filing')) {
+                    response = "The cost is Ksh5,000"
+                } else if (text.toLowerCase().includes('gic filing') || text.toLowerCase().includes('gic filling')) {
+                    response = "The cost is Ksh5,000"
+                } else if (text.toLowerCase().includes('dental extraction')) {
+                    response = "The cost is Ksh5,000"
+                } else if (text.toLowerCase().includes('children')) {
+                    response = "The cost for a dental extraction for children is Ksh2,500"
+                } else if (text.toLowerCase().includes('open disimpaction')) {
+                    response = "The cost is Ksh20,000"
+                } else if (text.toLowerCase().includes('close disimpaction')) {
+                    response = "The cost is Ksh7,500"
+                } else if (text.toLowerCase().includes('scaling') || text.toLowerCase().includes('polishing')) {
+                    response = "The cost is Ksh7,000"
+                } else if (text.toLowerCase().includes('oral prophylaxis')) {
+                    response = "The cost is Ksh4,000"
+                } else if (text.toLowerCase().includes('bleaching')) {
+                    response = "The cost for bleaching in office is Ksh45,000 and bleaching at home is 25,000"
+                } else if (text.toLowerCase().includes('dentures')) {
+                    response = "The cost is Ksh50,000"
+                } else if (text.toLowerCase().includes('root canal')) {
+                    response = "The cost is Ksh15,000"
+                } else {
+                    response = "Sorry, I cannot provide that answer at the moment. Please call or send a Whatsapp message to +254701-561-597 or +254745-382-230"
+                }
             } else if (text.toLowerCase().includes('time') || text.toLowerCase().includes('day') || text.toLowerCase().includes('when can')) {
                 response = "You can make a booking between 08:00 A.M to 05:00 P.M on Mondays to Fridays"
             } else if (text.toLowerCase().includes('schedule') || text.toLowerCase().includes('appointment') || text.toLowerCase().includes('booking') || text.toLowerCase().includes('book')) {
