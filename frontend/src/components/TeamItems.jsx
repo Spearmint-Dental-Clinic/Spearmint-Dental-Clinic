@@ -7,7 +7,7 @@ export default function TeamItems({ image, name, description }) {
                 <Col xs={5} lg={3} className="mb-3">
                     <Image src={image} alt="Team member image" className="w-100" roundedCircle></Image>
                 </Col>
-                <Col>  
+                <Col className="pt-3">  
                     <h4>{name}</h4>
                     <p className="text-secondary">{description}</p>
                 </Col>
