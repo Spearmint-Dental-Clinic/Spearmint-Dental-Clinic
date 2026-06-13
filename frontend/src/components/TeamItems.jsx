@@ -5,7 +5,7 @@ export default function TeamItems({ image, name, description }) {
         <Container className="teamItem rounded p-3 mt-5 w-75 shadow-lg">
             <Row className="w-75 mx-auto">
                 <Col xs={6} lg={3} className="mb-3 mx-auto">
-                    <Image src={image} alt="Team member image" className="w-100" roundedCircle></Image>
+                    <Image src={image} alt="Team member image" className="w-100 border border-1" roundedCircle></Image>
                 </Col>
                 <Col className="pt-3">  
                     <h4>{name}</h4>
