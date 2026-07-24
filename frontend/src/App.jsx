@@ -89,6 +89,7 @@ export default function App() {
                 });
     
                 const data = await result.json();
+                console.log(data)
                 response = data.response
             }
 
