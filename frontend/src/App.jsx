@@ -89,7 +89,7 @@ export default function App() {
                 });
     
                 const data = await result.json();
-                response = data.response.answer
+                response = data.response
             }
 
             const botMessage = {
