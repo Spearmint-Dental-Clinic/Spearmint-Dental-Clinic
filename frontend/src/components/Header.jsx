@@ -19,14 +19,14 @@ export default function Header() {
                 </Container>
             </Navbar>
             <Navbar sticky="top" className="p-4 bg-white shadow" collapseOnSelect expand="lg">
-                <Container>
+                <Container className="px-0 mx-auto">
                     <Navbar.Brand>
                         <Image src={logo} alt="Team member image" style={{ width: "50px" }} roundedCircle></Image>
                         <span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic</span>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto ms-5">
+                        <Nav className="ms-auto d-flex justify-content-end">
                             <Nav.Link href="#hero" className="text-secondary mx-2">Home</Nav.Link>
                             <Nav.Link href="#services" className="text-secondary mx-2">Services</Nav.Link>
                             <Nav.Link href="#team" className="text-secondary mx-2">Our Team</Nav.Link>
