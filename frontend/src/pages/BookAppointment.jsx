@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 export default function BookAppointment() {
     const [isSending, setIsSending] = useState(false);
     const [formData, setFormData] = useState({
+        email: '',
         message: ''
     });
     const today = new Date().toISOString().split('T')[0];
@@ -61,7 +62,7 @@ export default function BookAppointment() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control type="email" placeholder="john@example.com" onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email ? formData.email : null} required />
+                <Form.Control type="email" placeholder="john@example.com" onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email ? formData.email : null} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicNumber">
                 <Form.Label>Phone Number</Form.Label>
@@ -96,7 +97,7 @@ export default function BookAppointment() {
                 <Form.Control as="textarea" rows={3} onChange={(e) => setFormData({...formData, message: e.target.value})}  value={formData.message} />
               </Form.Group>
             <div className="text-center pb-4 mt-3">
-                <Button className="bookAppointmentButton" onClick={submitForm} disabled={!formData.name || !formData.email || !formData.phone || !formData.date || !formData.service}>
+                <Button className="bookAppointmentButton" onClick={submitForm} disabled={!formData.name || !formData.phone || !formData.date || !formData.service}>
                     {isSending ?
                         <Spinner
                             as="span"
