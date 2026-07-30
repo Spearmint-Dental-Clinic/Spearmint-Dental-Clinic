@@ -6,8 +6,8 @@ export default function Hero() {
         <div id='hero' className='hero'>
             <div style={{ height: "200px" }}></div>
             <div xs={9} lg={3} style={{ color: "white" }} className='p-4'>
-                <h1>Spearmint Dental Clinic</h1>
-                <p>Spearmint dental clinic provides comprehensive dental care tailored to your needs</p>
+                <h1>Spearmint Dental Clinic Nairobi</h1>
+                <p>Spearmint dental clinic Nairobi provides comprehensive dental care tailored to your needs</p>
                 <BookingButton></BookingButton>
             </div>
         </div>

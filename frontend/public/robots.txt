@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spearmint-dental-clinic-1.onrender.com/sitemap.xml
