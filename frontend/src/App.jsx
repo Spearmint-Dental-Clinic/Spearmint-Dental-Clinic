@@ -6,7 +6,6 @@ import Services from './pages/Services';
 import Team from './pages/Team';
 import BookAppointment from './pages/BookAppointment';
 import Footer from './components/Footer';
-import Location from './pages/Location';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react";
 import { Modal, Button, Form, InputGroup } from 'react-bootstrap';
 import { useState } from 'react';

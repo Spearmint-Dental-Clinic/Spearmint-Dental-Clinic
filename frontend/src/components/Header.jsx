@@ -22,7 +22,7 @@ export default function Header() {
                 <Container className="px-0 mx-auto">
                     <Navbar.Brand>
                         <Image src={logo} alt="Team member image" style={{ width: "50px" }} roundedCircle></Image>
-                        <span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic</span>
+                        <span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic Nairobi</span>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">

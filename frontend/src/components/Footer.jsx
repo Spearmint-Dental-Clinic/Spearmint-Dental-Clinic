@@ -8,7 +8,7 @@ export default function Footer() {
                 <Col xs={12} md={4} className="mb-4 mb-md-0">
                     <h4>
                         <Image src={logo} alt="Logo" style={{ width: "30px" }} roundedCircle className="me-1" />
-                        <span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic</span>
+                        <span className="headerBrandA">Spearmint</span> <span className="headerBrandB">Dental Clinic Nairobi</span>
                     </h4>
                 </Col>
                 <Col xs={12} md={4} className="mb-4 mb-md-0">

@@ -86,7 +86,7 @@ export default function Services() {
     return(
         <div id="services" className="pt-4">
             <h1 className="text-center sectionHeadings">Services</h1>
-            <p className="text-center text-secondary" style={{ width: "50%", marginLeft: "25%" }}>We offer a comprehensive range of dental services to meet all your oral health needs</p>
+            <p className="text-center text-secondary" style={{ width: "50%", marginLeft: "25%" }}>At Spearmint Dental Clinic Nairobi, we offer a comprehensive range of dental services to meet all your oral health needs</p>
 
             <div className="px-5 d-flex flex-direction-row flex-wrap justify-content-around">
                 {services.map((service) => {
