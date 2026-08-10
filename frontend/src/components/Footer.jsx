@@ -25,6 +25,13 @@ export default function Footer() {
                     </div>
                 </Col>
             </Row>
+            <hr />
+            <Row>
+                <Col className="d-flex justify-content-evenly">
+                    <a href="/privacypolicy" className="link-secondary" id="privacy-policy">Privacy Policy</a>
+                    <a href="/termsofservice" className="link-secondary" id="terms-of-service">Terms of Service</a>
+                </Col>
+            </Row>
         </Container>
     )
 }

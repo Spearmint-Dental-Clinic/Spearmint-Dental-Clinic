@@ -14,6 +14,10 @@
     border: none;
 }
 
+.bookAppointmentButton:disabled {
+    background-color: grey;
+}
+
 .bookAppointmentButton:hover {
     border: 1px solid black;
     background-color: #039678;

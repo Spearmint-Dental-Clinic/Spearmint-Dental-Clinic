@@ -44,7 +44,7 @@ export default function BookAppointment() {
 
         } catch (err) {
             console.log(err);
-            setErrors([{msg: 'Server error encountered'}])
+            setErrors([{ msg: 'Server error encountered' }])
         } finally {
             setIsSending(false);
         }
@@ -58,23 +58,23 @@ export default function BookAppointment() {
             <h3 className="sectionHeadings mt-4 mb-3">Book an appointment</h3>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control type="name" placeholder="John Doe" onChange={(e) => setFormData({...formData, name: e.target.value})} value={formData.name ? formData.name : null} required />
+                <Form.Control type="name" placeholder="John Doe" onChange={(e) => setFormData({ ...formData, name: e.target.value })} value={formData.name ? formData.name : null} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control type="email" placeholder="john@example.com" onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email ? formData.email : null} />
+                <Form.Control type="email" placeholder="john@example.com" onChange={(e) => setFormData({ ...formData, email: e.target.value })} value={formData.email ? formData.email : null} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicNumber">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="number" placeholder="07********" onChange={(e) => setFormData({...formData, phone: e.target.value})} value={formData.phone ? formData.phone : null} required />
+                <Form.Control type="number" placeholder="07********" onChange={(e) => setFormData({ ...formData, phone: e.target.value })} value={formData.phone ? formData.phone : null} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicDate">
                 <Form.Label>Select Appointment Date</Form.Label>
-                <Form.Control type="date" min={today} value={formData.date ? formData.date : null} onChange={(e) => setFormData({...formData, date: e.target.value})} required />
+                <Form.Control type="date" min={today} value={formData.date ? formData.date : null} onChange={(e) => setFormData({ ...formData, date: e.target.value })} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicService">
                 <Form.Label>Select a service</Form.Label>
-                <Form.Select aria-label="Select a service" onChange={(e) => setFormData({...formData, service: e.target.value})} value={formData.service ? formData.service : null} required>
+                <Form.Select aria-label="Select a service" onChange={(e) => setFormData({ ...formData, service: e.target.value })} value={formData.service ? formData.service : null} required>
                     <option>Select a service</option>
                     <option value="Consultation">Consultation</option>
                     <option value="Study Models">Study Models</option>
@@ -94,10 +94,14 @@ export default function BookAppointment() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="FormControlArea">
                 <Form.Label>Enter a message (optional)</Form.Label>
-                <Form.Control as="textarea" rows={3} onChange={(e) => setFormData({...formData, message: e.target.value})}  value={formData.message} />
-              </Form.Group>
+                <Form.Control as="textarea" rows={3} onChange={(e) => setFormData({ ...formData, message: e.target.value })} value={formData.message} />
+            </Form.Group>
+            <Form.Group className="mb-3" className="form-check">
+                <Form.Control type="checkbox" id="privacy-check" className="form-check-input" onChange={(e) => setFormData({ ...formData, accepted: true })} />
+                <Form.Label for="privacy-check" className="form-check-label"> I have read and agreed to the <a href="/privacypolicy" className="text-secondary">Privacy Policy</a> and <a href="/termsofservice" className="text-secondary">Terms of Service</a> </Form.Label>
+            </Form.Group>
             <div className="text-center pb-4 mt-3">
-                <Button className="bookAppointmentButton" onClick={submitForm} disabled={!formData.name || !formData.phone || !formData.date || !formData.service}>
+                <Button className="bookAppointmentButton" onClick={submitForm} disabled={!formData.name || !formData.phone || !formData.date || !formData.service || !formData.accepted}>
                     {isSending ?
                         <Spinner
                             as="span"
