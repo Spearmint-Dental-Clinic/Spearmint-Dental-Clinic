@@ -30,6 +30,7 @@ export default function Header() {
                             <Nav.Link href="#hero" className="text-secondary mx-2">Home</Nav.Link>
                             <Nav.Link href="#services" className="text-secondary mx-2">Services</Nav.Link>
                             <Nav.Link href="#team" className="text-secondary mx-2">Our Team</Nav.Link>
+                            <Nav.Link href="#location" className="text-secondary mx-2">Location</Nav.Link>
                             <Nav.Link href="#footer" className="text-secondary mx-2">Reach us</Nav.Link>
                             <BookingButton></BookingButton>
                         </Nav>

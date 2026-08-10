@@ -4,6 +4,7 @@ import Header from './components/Header';
 import { Helmet } from 'react-helmet-async';
 import Hero from './pages/Hero';
 import Services from './pages/Services';
+import Location from './pages/Location';
 import Team from './pages/Team';
 import BookAppointment from './pages/BookAppointment';
 import Footer from './components/Footer';
@@ -123,6 +124,7 @@ export default function App() {
             <Hero />
             <Services />
             <Team />
+            <Location />
             <BookAppointment />
             <Footer />
             <Button id="chatbotIcon" onClick={handleShow}>
