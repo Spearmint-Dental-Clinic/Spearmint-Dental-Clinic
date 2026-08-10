@@ -20,22 +20,17 @@ export default function Services() {
         {
             'icon': consultation,
             'title': 'Consultation',
-            'text': 'A comprehensive clinical assessment to evaluate oral health and discuss personalized treatment goals'
+            'text': 'We offer the most comprehensive clinical assessment to evaluate oral health and discuss personalized treatment goals in Nairobi.'
         },
         {
             'icon': studyModels,
             'title': 'Study Models',
-            'text': 'Accurate physical replicas of your teeth used for precise treatment planning and diagnostic analysis.',
+            'text': 'Spearmint Dental Clinic is your place to go in Nairobi for accurate physical replicas of your teeth.',
         },
         {
             'icon': compositeFiling,
             'title': 'Composite Filling',
-            'text': 'A tooth-coloured resin restoration that seamlessly repairs cavities while maintaining a natural appearance.',
-        },
-        {
-            'icon': gicFiling,
-            'title': 'GIC Filling',
-            'text': 'A fluoride-releasing material ideal for protecting teeth and restoring cavities in low-pressure areas.',
+            'text': 'Come to Spearmint Dental Clinic Nairobi for tooth-coloured resin restoration that seamlessly repairs cavities while maintaining a natural appearance.',
         },
         {
             'icon': dentalExtraction,
@@ -45,48 +40,43 @@ export default function Services() {
         {
             'icon': childrenExtraction,
             'title': 'Children Tooth Extraction',
-            'text': 'Specialized, compassionate removal of primary teeth to ensure proper spacing and comfort for kids.'
+            'text': 'Want to get your kid\'s primary dental teeth removed in Nairobi? Spearmint Dental Clinic, Nairobi is the place for you.'
         },
         {
             'icon': rootCanal,
             'title': 'Root Canal',
-            'text': 'Expert endodontic treatment to save infected teeth and relieve pain.'
+            'text': 'Our expert dentists are here to perform your root canal and releive tooth pain at an affordable cost in Nairobi.'
         },
         {
             'icon': openDisimpaction,
             'title': 'Open Disimpaction',
-            'text': 'A surgical procedure involving a small incision to access and remove deeply impacted teeth.'
-        },
-        {
-            'icon': closedDisimpaction,
-            'title': 'Closed Disimpaction',
-            'text': 'The expert removal of an impacted tooth that hasn\'t fully emerged through the gum line.'
+            'text': 'Get your tooth disimpaction in the Nairobi area at Spearmint Dental Clinic for the best treatment at extremely low prices.'
         },
         {
             'icon': fullMouth,
             'title': 'Full Mouth Scaling and Polishing',
-            'text': 'A deep cleaning treatment that removes hardened plaque and surface stains for a fresh smile.'
+            'text': 'Refresh your smile with a full mouth dental cleaning and polishing with us. Simply book an appointment and get a whole new smile.'
         },
         {
             'icon': oralProphylaxis,
             'title': 'Oral Prophylaxis',
-            'text': 'Professional cleaning and preventative care designed to stop gum disease before it starts.'
+            'text': 'If you are looking for professional dental cleaning and preventative care, come to Spearmint Dental Clinic, Nairobi.'
         },
         {
             'icon': bleaching,
             'title': 'Bleaching',
-            'text': 'A professional whitening treatment that safely lifts stains to brighten your teeth by several shades.'
+            'text': 'Get professional teeth whitening treatment at Spearmint Dental Clinic, Nairobi that safely lifts stains to brighten your teeth by several shades.'
         },
         {
             'icon': dentures,
             'title': 'Dentures',
-            'text': 'Custom-crafted removable appliances designed to restore the function and look of missing teeth.'
+            'text': 'Want custom-crafted removable dentures in Nairobi? Make a booking with us today.'
         }
     ]
     return(
         <div id="services" className="pt-4">
             <h1 className="text-center sectionHeadings">Services</h1>
-            <p className="text-center text-secondary" style={{ width: "50%", marginLeft: "25%" }}>At Spearmint Dental Clinic Nairobi, we offer a comprehensive range of dental services to meet all your oral health needs</p>
+            <p className="text-center text-secondary" style={{ width: "50%", marginLeft: "25%" }}>At Spearmint Dental Clinic Nairobi, we offer a comprehensive range of dental services at an affordable price in Nairobi near Hurlingham to meet all your oral health needs</p>
 
             <div className="px-5 d-flex flex-direction-row flex-wrap justify-content-around">
                 {services.map((service) => {
