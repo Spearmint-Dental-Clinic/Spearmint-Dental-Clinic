@@ -1,6 +1,7 @@
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
+import { Helmet } from 'react-helmet-async';
 import Hero from './pages/Hero';
 import Services from './pages/Services';
 import Team from './pages/Team';
@@ -113,6 +114,11 @@ export default function App() {
 
     return(
         <>
+            <Helmet>
+                <title>Spearmint Dental Clinic Nairobi | Affordable Dentist</title>
+                <meta name="description" content="Visit Spearmint Dental Clinic in Nairobi for affordable teeth cleaning, braces, extractions, and fillings. Book an appointment today." />
+                <link rel="canonical" href="https://onrender.com" />
+            </Helmet>
             <Header />
             <Hero />
             <Services />
